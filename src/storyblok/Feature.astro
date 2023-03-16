@@ -1,9 +1,17 @@
 ---
 import { storyblokEditable } from "@storyblok/astro";
+import { Icon } from 'astro-iconify';
 
 const { blok } = Astro.props;
+const icon = blok.icon.icon
+
 ---
 
 <div {...storyblokEditable(blok)}>
   <h2 class="text-center text-secondary text-xl font-bold">{blok.name}</h2>
+  <div class="flex justify-center pt-8">
+    { icon &&
+      <Icon class="w-[100px] h-[100px] text-indigo-900" name={icon}/>
+    }
+  </div>
 </div>
